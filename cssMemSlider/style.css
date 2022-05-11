@@ -6,6 +6,10 @@
     --width-img: 90%;
     --height-picture: calc(var(--width-slider) * 0.7);
     --border-radius-main: 0.5em;
+    --width-mobile: 31.25em;
+    --width-slider-mobile: calc(var(--width-mobile) * 0.6);
+    --width-slider-min: 10em;
+    --height-picture-mobile: calc(var(--width-slider-mobile) * 0.7);
   }
  
 
@@ -26,15 +30,25 @@ body{
     border: 0.05em solid var(--color-control-hover);
 }
 
-.container{
-    width: 100%;
+@media (max-width: 31.25em) {
+    .slider{
+       max-width: var(--width-slider-mobile);
+       width: max(var(--width-slider-min), 100vw);
+    }
 }
 
 .picture{
     display: flex;
     align-items: center;
     width: 100%;
-    height: var(--height-picture);
+    max-height: var(--height-picture);
+}
+
+@media (max-width: 31.25em) {
+    .picture{
+        max-height: var(--height-picture-mobile);
+    }
+    
 }
 
 .picture-img{
@@ -81,6 +95,23 @@ body{
     padding: 0 calc(5% - 0.8em) 0 5%;
 }
 
+@media (max-width: 31.25em) {
+    .slider-footer{
+        flex-direction: column;
+        padding: 0.1em 5%;
+    }
+}
+
+.titles{
+    align-self: center;
+}
+
+@media (max-width: 31.25em) {
+    .titles{
+        align-self: flex-start;
+    }
+}
+
 .displey1, .displey2, .displey3, .displey4{
     display: none;
     /*transform: translate(-500%);
@@ -91,13 +122,15 @@ body{
 #slider1:checked ~ .displey1,
 #slider2:checked ~ .displey2,
 #slider3:checked ~ .displey3,
-#slider4:checked ~ .displey4,
+#slider4:checked ~ .displey4{
+    display: flex;
+}
 #slider1:checked ~ * .displey1,
 #slider2:checked ~ * .displey2,
 #slider3:checked ~ * .displey3,
 #slider4:checked ~ * .displey4
 {
-    display: flex;
+    display: block;
 }
 
 #slider1:checked ~ * .control-active1,
