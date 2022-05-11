@@ -1,5 +1,37 @@
+:root {
+    --color-control: blueviolet;
+    --color-control-hover: rgba(137, 43, 226, 0.5)
+    ;
+  }
+ 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+.controls{
+    display: flex;
+}
+
+.control-decorate{
+    margin: 2em;
+    padding: 1em;
+    border-radius: 50%;
+    border-color: var(--color-control);
+    border-width: 0.25em;
+    border-style: solid;
+}
+
+.control:hover{
+    cursor: pointer;
+    */
+}
+
+.control:hover .control-decorate{
+    background-color: var(--color-control-hover);
+    
+}
+
+
