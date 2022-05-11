@@ -1,14 +1,52 @@
 :root {
     --color-control: blueviolet;
-    --color-control-hover: rgba(137, 43, 226, 0.5)
-    ;
+    --color-control-text: rgb(75, 25, 121);
+    --color-control-hover: rgb(182, 135, 226);
+    --width-slider: 60vw;
+    --width-img: 90%;
+    --height-picture: calc(var(--width-slider) * 0.7);
+    --border-radius-main: 0.5em;
   }
  
 
-* {
+body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--color-control-text);
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 600;
+}
+
+.slider{
+    margin: 1em auto;
+    padding: 1em;
+    max-width: 60vw;
+    border-radius: var(--border-radius-main);
+    border: 0.05em solid var(--color-control-hover);
+}
+
+.container{
+    width: 100%;
+}
+
+.picture{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: var(--height-picture);
+}
+
+.picture-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--border-radius-main);
+    width: var(--width-img);
+}
+
+.container-radio{
+    display: none;
 }
 
 .controls{
@@ -16,22 +54,57 @@
 }
 
 .control-decorate{
-    margin: 2em;
-    padding: 1em;
+    margin: 0.6em;
+    padding: 0.4em;
     border-radius: 50%;
     border-color: var(--color-control);
-    border-width: 0.25em;
+    border-width: 0.1em;
     border-style: solid;
 }
 
 .control:hover{
     cursor: pointer;
-    */
 }
 
 .control:hover .control-decorate{
     background-color: var(--color-control-hover);
+    box-shadow: 0 0 1em 0.15em var(--color-control);
+    transition: 0.5s;
     
+}
+
+.slider-footer{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 calc(5% - 0.8em) 0 5%;
+}
+
+.displey1, .displey2, .displey3, .displey4{
+    display: none;
+    /*transform: translate(-500%);
+    transition: transform 0.5s ease-in-out;*/
+} 
+
+
+#slider1:checked ~ .displey1,
+#slider2:checked ~ .displey2,
+#slider3:checked ~ .displey3,
+#slider4:checked ~ .displey4,
+#slider1:checked ~ * .displey1,
+#slider2:checked ~ * .displey2,
+#slider3:checked ~ * .displey3,
+#slider4:checked ~ * .displey4
+{
+    display: flex;
+}
+
+#slider1:checked ~ * .control-active1,
+#slider2:checked ~ * .control-active2,
+#slider3:checked ~ * .control-active3,
+#slider4:checked ~ * .control-active4{
+    background-color: var(--color-control);
 }
 
 
